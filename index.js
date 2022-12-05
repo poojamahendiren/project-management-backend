@@ -13,6 +13,10 @@ const app = express();
 //(DB connection)  
 db();
 
+app.get('/', (req, res) => {
+  res.send('Welcome to Org!');
+})
+
 //middleware to convert incoming data into jason format
 app.use(express.json());
 app.use(cors());
