@@ -103,13 +103,13 @@ router.get ('/logout' ,async (req, res) => {
 router.get('/is_logged_in' ,async (req, res) => {
   const token = req.cookies.access_token;
   if (!token) {
-    return res.json(false);
+    return res.send(false);
   }
   return jwt.verify(token, process.env.JWT_SECRET, (err) => {
     if (err) {
-      return res.json(false);
+      return res.send(false);
     }
-    return res.json(true);
+    return res.send(true);
   });
 });
 
